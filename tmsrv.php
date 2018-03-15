@@ -10,14 +10,14 @@ define("TMSRV_API_URL","https://tmsrv.pw/send/v1");
 
 Class tms {
 
-    public static function send($text) {
+    public static function send($text, $token=TMSRV_TOKEN) {
 
         if(empty($text))
             return array('ok'=>false, 'error'=>'message is empty');
 
         $url = TMSRV_API_URL;
         $post = array(
-            'token' => TMSRV_TOKEN,
+            'token' => $token,
             'message' => $text,
             'language'=> 'PHP',
         );
